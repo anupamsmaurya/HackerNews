@@ -12,11 +12,17 @@ const Home = () => {
 
     const handleSearch = async (text) => {
         setIsFetching(true)
-        const data = await fetchSearchResults(text)
-        if(data) {
-            setSearchResult(data)
+        try {
+            const data = await fetchSearchResults(text)
+            if(data) {
+                setSearchResult(data)            
+            }                
+        } catch (error) {
+            //TODO: Add error message for user
+            console.log('Error fetching news results.', error)
+        } finally {
             setIsFetching(false)
-        }
+        }        
     }
 
     return (
