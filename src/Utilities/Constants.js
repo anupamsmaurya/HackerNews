@@ -1,0 +1,1 @@
+export const SEARCH_URL = "http://hn.algolia.com/api/v1/search"
