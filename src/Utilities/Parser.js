@@ -4,7 +4,7 @@ export function parseAndHighlight(prop, higlightObject) {
 
 export function highlighter(input, searchterm) {
     var searchRegex = new RegExp(searchterm, "igm");
-    return input.replace(searchRegex,`<span class='highlighted-text'>${searchterm}</span>`);
+    return input.replace(searchRegex, function(string) {return `<span class='highlighted-text'>${string}</span>`})
 }
 
 export function parseTimestamp(timestamp) {

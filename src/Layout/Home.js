@@ -10,14 +10,13 @@ const Home = () => {
     const [searchResult, setSearchResult] = useState()
     const [isFetching, setIsFetching] = useState(false)
 
-    const handleSearch = (text) => {
+    const handleSearch = async (text) => {
         setIsFetching(true)
-        fetchSearchResults(text).then((data) => {
-            if(data) {
-                setSearchResult(data)
-                setIsFetching(false)
-            }
-        })
+        const data = await fetchSearchResults(text)
+        if(data) {
+            setSearchResult(data)
+            setIsFetching(false)
+        }
     }
 
     return (
